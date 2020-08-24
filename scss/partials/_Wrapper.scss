@@ -1,0 +1,39 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    z-index: 2;
+
+    .sidebar {
+        position: fixed;
+        width: 270px;
+        min-height: 100vh;
+        margin-right: 3px;
+        background-color: #ffffff;
+        transform: translate3d(0, 0, 0);
+        transition: transform .4s;
+
+        &.isClose {
+            transform: translate3d(-250px, 0, 0);
+        }
+    }
+
+    .main-container {
+        transition: all .4s ease;
+        flex: 1;
+        z-index: 1;
+
+        &.isOpen {
+            padding-left: 270px;
+            margin-left: 3px;
+
+            @media screen and (max-width: 576px) {
+                padding: 0;
+                transform: translate3d(270px, 0, 0);
+            }
+
+        }
+
+    }
+}
